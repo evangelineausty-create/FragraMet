@@ -1,0 +1,7 @@
+
+streamlit
+cobra==0.32.1
+pandas
+numpy
+plotly
+graphviz
