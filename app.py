@@ -11,6 +11,7 @@ from fermentation_optimization import show_fermentation_optimization
 from nutrient_optimization import show_nutrient_optimization
 from toxicity_analysis import show_toxicity_analysis
 from cofactor_analysis import show_cofactor_analysis
+from microbial_growth import show_microbial_growth
 
 
 # ==========================================
@@ -446,6 +447,16 @@ if st.session_state.page == "home":
         st.rerun()
 
 
+    # MICROBIAL GROWTH ANALYSIS BUTTON
+
+    if st.button(
+        "🦠 Open Microbial Growth Analysis",
+        use_container_width=True
+    ):
+        st.session_state.page = "microbial_growth"
+        st.rerun()
+
+
     # ======================================
     # FOOTER
     # ======================================
@@ -666,3 +677,20 @@ elif st.session_state.page == "cofactor":
 
     st.divider()
     show_cofactor_analysis()
+
+
+# ==========================================
+# MICROBIAL GROWTH ANALYSIS
+# ==========================================
+
+elif st.session_state.page == "microbial_growth":
+
+    if st.button(
+        "← Back to Homepage",
+        key="microbial_growth_back"
+    ):
+        st.session_state.page = "home"
+        st.rerun()
+
+    st.divider()
+    show_microbial_growth()
