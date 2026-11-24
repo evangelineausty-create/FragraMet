@@ -12,6 +12,7 @@ from nutrient_optimization import show_nutrient_optimization
 from toxicity_analysis import show_toxicity_analysis
 from cofactor_analysis import show_cofactor_analysis
 from microbial_growth import show_microbial_growth
+from integrated_optimization import show_integrated_optimization
 
 
 # ==========================================
@@ -457,6 +458,16 @@ if st.session_state.page == "home":
         st.rerun()
 
 
+    # INTEGRATED OPTIMIZATION BUTTON
+
+    if st.button(
+        "🚀 Open Integrated Metabolic Engineering Optimization",
+        use_container_width=True
+    ):
+        st.session_state.page = "integrated"
+        st.rerun()
+
+
     # ======================================
     # FOOTER
     # ======================================
@@ -694,3 +705,20 @@ elif st.session_state.page == "microbial_growth":
 
     st.divider()
     show_microbial_growth()
+
+
+# ==========================================
+# INTEGRATED OPTIMIZATION
+# ==========================================
+
+elif st.session_state.page == "integrated":
+
+    if st.button(
+        "← Back to Homepage",
+        key="integrated_back"
+    ):
+        st.session_state.page = "home"
+        st.rerun()
+
+    st.divider()
+    show_integrated_optimization()
