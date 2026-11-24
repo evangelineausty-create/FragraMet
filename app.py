@@ -9,6 +9,7 @@ from gene_database import show_gene_database
 from virtual_engineering import show_virtual_engineering
 from fermentation_optimization import show_fermentation_optimization
 from nutrient_optimization import show_nutrient_optimization
+from toxicity_analysis import show_toxicity_analysis
 
 
 # ==========================================
@@ -424,6 +425,16 @@ if st.session_state.page == "home":
         st.rerun()
 
 
+    # TOXICITY ANALYSIS BUTTON
+
+    if st.button(
+        "🛡️ Open Vanillin Toxicity Analysis",
+        use_container_width=True
+    ):
+        st.session_state.page = "toxicity"
+        st.rerun()
+
+
     # ======================================
     # FOOTER
     # ======================================
@@ -610,3 +621,20 @@ elif st.session_state.page == "nutrient":
 
     st.divider()
     show_nutrient_optimization()
+
+
+# ==========================================
+# VANILLIN TOXICITY ANALYSIS
+# ==========================================
+
+elif st.session_state.page == "toxicity":
+
+    if st.button(
+        "← Back to Homepage",
+        key="toxicity_back"
+    ):
+        st.session_state.page = "home"
+        st.rerun()
+
+    st.divider()
+    show_toxicity_analysis()
