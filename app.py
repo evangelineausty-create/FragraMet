@@ -7,6 +7,7 @@ from gene_engineering import show_gene_engineering
 from flux_analysis import show_flux_analysis
 from bottleneck_analysis import show_bottleneck_analysis
 from gene_database import show_gene_database
+from virtual_engineering import show_virtual_engineering
 
 
 # ==========================================
@@ -343,7 +344,9 @@ if st.session_state.page == "home":
     st.write("")
 
 
+    # ======================================
     # NAVIGATION BUTTONS
+    # ======================================
 
     st.subheader("Research Modules")
 
@@ -380,7 +383,7 @@ if st.session_state.page == "home":
         st.rerun()
 
 
-    # NEW GENE DATABASE BUTTON
+    # GENE DATABASE BUTTON
 
     if st.button(
         "🧬 Open Vanillin Gene Database",
@@ -390,7 +393,19 @@ if st.session_state.page == "home":
         st.rerun()
 
 
+    # VIRTUAL GENE ENGINEERING BUTTON
+
+    if st.button(
+        "🧪 Open Virtual Gene Engineering",
+        use_container_width=True
+    ):
+        st.session_state.page = "virtual_engineering"
+        st.rerun()
+
+
+    # ======================================
     # FOOTER
+    # ======================================
 
     st.markdown("""
     <div class="footer">
@@ -523,3 +538,20 @@ elif st.session_state.page == "gene_database":
 
     st.divider()
     show_gene_database()
+
+
+# ==========================================
+# VIRTUAL GENE ENGINEERING
+# ==========================================
+
+elif st.session_state.page == "virtual_engineering":
+
+    if st.button(
+        "← Back to Homepage",
+        key="virtual_engineering_back"
+    ):
+        st.session_state.page = "home"
+        st.rerun()
+
+    st.divider()
+    show_virtual_engineering()
