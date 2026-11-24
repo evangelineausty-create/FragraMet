@@ -1,4 +1,3 @@
-
 import streamlit as st
 
 from production_optimization import show_production_optimization
@@ -8,6 +7,7 @@ from flux_analysis import show_flux_analysis
 from bottleneck_analysis import show_bottleneck_analysis
 from gene_database import show_gene_database
 from virtual_engineering import show_virtual_engineering
+from fermentation_optimization import show_fermentation_optimization
 
 
 # ==========================================
@@ -403,6 +403,16 @@ if st.session_state.page == "home":
         st.rerun()
 
 
+    # FERMENTATION OPTIMIZATION BUTTON
+
+    if st.button(
+        "🧪 Open Fermentation Optimization",
+        use_container_width=True
+    ):
+        st.session_state.page = "fermentation"
+        st.rerun()
+
+
     # ======================================
     # FOOTER
     # ======================================
@@ -555,3 +565,20 @@ elif st.session_state.page == "virtual_engineering":
 
     st.divider()
     show_virtual_engineering()
+
+
+# ==========================================
+# FERMENTATION OPTIMIZATION
+# ==========================================
+
+elif st.session_state.page == "fermentation":
+
+    if st.button(
+        "← Back to Homepage",
+        key="fermentation_back"
+    ):
+        st.session_state.page = "home"
+        st.rerun()
+
+    st.divider()
+    show_fermentation_optimization()
