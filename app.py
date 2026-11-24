@@ -8,6 +8,7 @@ from bottleneck_analysis import show_bottleneck_analysis
 from gene_database import show_gene_database
 from virtual_engineering import show_virtual_engineering
 from fermentation_optimization import show_fermentation_optimization
+from nutrient_optimization import show_nutrient_optimization
 
 
 # ==========================================
@@ -413,6 +414,16 @@ if st.session_state.page == "home":
         st.rerun()
 
 
+    # NUTRIENT OPTIMIZATION BUTTON
+
+    if st.button(
+        "🌱 Open Nutrient Optimization",
+        use_container_width=True
+    ):
+        st.session_state.page = "nutrient"
+        st.rerun()
+
+
     # ======================================
     # FOOTER
     # ======================================
@@ -582,3 +593,20 @@ elif st.session_state.page == "fermentation":
 
     st.divider()
     show_fermentation_optimization()
+
+
+# ==========================================
+# NUTRIENT OPTIMIZATION
+# ==========================================
+
+elif st.session_state.page == "nutrient":
+
+    if st.button(
+        "← Back to Homepage",
+        key="nutrient_back"
+    ):
+        st.session_state.page = "home"
+        st.rerun()
+
+    st.divider()
+    show_nutrient_optimization()
